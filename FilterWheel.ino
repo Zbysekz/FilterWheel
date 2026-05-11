@@ -136,7 +136,9 @@ bool Locate_Home()
   int HallValue;
   bool error = false;
   stepper.enableOutputs();
+  //this is blocking
   stepper.runToNewPosition(stepper.currentPosition() - 5000); // back magnet off sensor
+  //this is not blocking
   stepper.moveTo(stepsPerRevolution*1.2);  // set move to as 120% of full revolution so if not homed by then raise error.
 
   do
